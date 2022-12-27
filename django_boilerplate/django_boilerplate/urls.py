@@ -29,7 +29,7 @@ class Sample_modelViewSet(viewsets.ModelViewSet):
     serializer_class = Sample_modelSerializer
 
 router = routers.DefaultRouter()
-router.register(r'ample_models', Sample_modelViewSet)
+router.register(r'sample_models', Sample_modelViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
