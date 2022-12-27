@@ -1,6 +1,6 @@
-import logo from './logo.svg'; 
+import React from 'react'
 
-const App = () => {
+const Home = () => {
   return (
     <div className="App">
       React - Django Template!
@@ -8,4 +8,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default Home;
