@@ -15,8 +15,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework import routers, serializers, viewsets
+
+from base.models import Sample_model
+
+class Sample_modelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Sample_model
+        fields = ['name']
+
+class Sample_modelViewSet(viewsets.ModelViewSet):
+    queryset = Sample_model.objects.all()
+    serializer_class = Sample_modelSerializer
+
+router = routers.DefaultRouter()
+router.register(r'ample_models', Sample_modelViewSet)
 
 urlpatterns = [
+    path('', include(router.urls)),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls'))
 ]
