@@ -17,22 +17,22 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers, serializers, viewsets
 
-from base.models import Sample_model
+from base.models import School
 
-class Sample_modelSerializer(serializers.ModelSerializer):
+class SchoolSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Sample_model
+        model = School
         fields = ['name']
 
 class Sample_modelViewSet(viewsets.ModelViewSet):
-    queryset = Sample_model.objects.all()
-    serializer_class = Sample_modelSerializer
+    queryset = School.objects.all()
+    serializer_class = SchoolSerializer
 
 router = routers.DefaultRouter()
 router.register(r'sample_models', Sample_modelViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls'))
 ]
