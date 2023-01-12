@@ -29,7 +29,7 @@ class Sample_modelViewSet(viewsets.ModelViewSet):
     serializer_class = SchoolSerializer
 
 router = routers.DefaultRouter()
-router.register(r'sample_models', Sample_modelViewSet)
+router.register(r'schools', Sample_modelViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
